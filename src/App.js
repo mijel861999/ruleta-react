@@ -1,11 +1,15 @@
+import React from 'react';
+
 import { RuletaScreen } from './components/RuletaScreen';
-import { ChakraProvider } from '@chakra-ui/react';
+
+import { store } from './store/store';
+import { Provider } from 'react-redux';
 
 function App() {
   return (
-    <ChakraProvider>
+    <Provider store={ store }>
       <RuletaScreen />
-    </ChakraProvider>
+    </Provider>
   );
 }
 

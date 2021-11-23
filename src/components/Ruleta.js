@@ -1,17 +1,8 @@
 import React, {  useState } from 'react';
 import styled from 'styled-components';
+import { handleSetBackground } from '../helpers/stylesFunctions';
 
 
-const handleSetBackground = ( color ) => {
-    switch ( color ) {
-        case "black": 
-            return "#000000";
-        case "red": 
-            return "tomato";
-        default:
-            return "green";
-    }
-}
 
 export const NumeroContainer = styled.div`
     width: 80px;
@@ -21,7 +12,7 @@ export const NumeroContainer = styled.div`
     justify-content: center;
     align-items: center;
     color: white;
-    border: 1px solid tomato;
+    border-radius: 14px;
 `; 
 
 export const Ruleta = () => { 
@@ -31,9 +22,6 @@ export const Ruleta = () => {
     const reds = numbers.filter( num => num % 2 !== 0 );
     const blacks = numbers.filter( num => num % 2 === 0 );
     blacks.shift();
-
-    console.log( reds );
-    console.log( blacks );
    
     const [ numberSelected, setNumberSelected ] = useState(null); 
     const [ color, setColor ] = useState(null);
@@ -41,7 +29,6 @@ export const Ruleta = () => {
     const handleSpin = () => {
         const rand = Math.floor( Math.random()*numbers.length )
         const rValue = numbers[rand];
-        console.log(rValue);
 
         if ( reds.includes(rValue)) {
             setColor( "red" )

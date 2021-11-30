@@ -5,7 +5,7 @@ export const Option = () => {
         <form>
             <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">Dinero para apostar</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                 <div id="emailHelp" className="form-text">
                     Intenta no caer en quiebra.
                 </div>

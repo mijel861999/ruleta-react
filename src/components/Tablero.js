@@ -13,7 +13,7 @@ const TableroItem = styled.div`
 
 export const Tablero = () => {
 
-    const { numbers, reds, blacks } = useSelector( state => state.ruleta )
+    const { numbers, reds } = useSelector( state => state.ruleta )
     numbers.shift();
 
     const cero = 0;

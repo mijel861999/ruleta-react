@@ -1,6 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 export const Option = () => {
+
+    const { numbers } = useSelector( state => state.ruleta )
+
     return ( 
         <form>
             <div className="mb-3">
@@ -13,7 +17,11 @@ export const Option = () => {
             <div className="mb-3">
                 <label htmlFor="disabledSelect" className="form-label">Selecciona tu numero</label>
                 <select id="disabledSelect" className="form-select">
-                    <option>1</option>
+                    {
+                        numbers.map( number => 
+                            <option>{ number }</option>
+                        )
+                    }
                 </select>
             </div>
         </form>   

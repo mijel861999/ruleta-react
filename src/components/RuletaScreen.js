@@ -20,7 +20,7 @@ export const RuletaScreen = () => {
             </div>
 
             <div className="row mt-5">
-                <div className="col-12 d-flex justify-content-center">
+                <div className="col-6 offset-3 d-flex justify-content-center">
                     <Tablero />
                 </div>
             </div>

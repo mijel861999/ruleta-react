@@ -12,7 +12,9 @@ blacks.shift();
 const initialState = {
   numbers,
   reds,
-  blacks
+  blacks,
+  money: 200,
+  option: null
 }
 
 

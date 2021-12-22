@@ -11,7 +11,9 @@ const TableroItem = styled.div`
     border: 1px solid tomato;
 `;
 
-export const Tablero = () => {
+export const Tablero = ({ money, setMoney, setProfit }) => {
+
+    console.log(money)
 
     const { numbers, reds } = useSelector( state => state.ruleta )
     numbers.shift();
@@ -20,6 +22,7 @@ export const Tablero = () => {
 
     const handleSelectNumber = () => {
         alert('Seleccionaste este número')
+        setProfit( money*0.28 )
     }
 
     return (

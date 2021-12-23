@@ -11,18 +11,11 @@ const TableroItem = styled.div`
     border: 1px solid tomato;
 `;
 
-export const Tablero = ({ money, setMoney, setProfit }) => {
+export const Tablero = ({ money, setMoney, setProfit, setNumberSelected, numbersTablero,reds ,betMoney }) => {
 
-    console.log(money)
-
-    const { numbers, reds } = useSelector( state => state.ruleta )
-    numbers.shift();
-
-    const cero = 0;
-
-    const handleSelectNumber = () => {
-        alert('Seleccionaste este número')
-        setProfit( money*0.28 )
+    const handleSelectNumber = (number) => {
+        setProfit( betMoney*0.28 )
+        setNumberSelected(number)
     }
 
     return (
@@ -38,16 +31,18 @@ export const Tablero = ({ money, setMoney, setProfit }) => {
                                 style={{
                                     color: 'white'
                                 }}
-                                onClick={ handleSelectNumber }
+                                onClick={()=>{
+                                    handleSelectNumber(0) 
+                                }}
                             >
-                                { cero }
+                                0
                             </button>
                         </TableroItem> 
                     </div>
                 </div>
                 <div className="row">
                     {
-                        numbers.map( (number) => 
+                        numbersTablero.map( (number) => 
                             
                             <div 
                                 className="col-4 pt-0 pe-0 ps-0 text-center"
@@ -59,7 +54,9 @@ export const Tablero = ({ money, setMoney, setProfit }) => {
                                         style={{
                                             color: 'white'
                                         }}
-                                        onClick={ handleSelectNumber }
+                                        onClick={ ()=> {
+                                            handleSelectNumber(number)
+                                        }}
                                     >
                                         { number }
                                     </button>

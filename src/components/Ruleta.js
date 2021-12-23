@@ -18,16 +18,15 @@ export const NumeroContainer = styled.div`
     border-radius: 14px;
 `; 
 
-export const Ruleta = () => { 
+export const Ruleta = ({ setNumberAzar, numbers, reds, blacks }) => { 
 
-    const { numbers, reds, blacks } = useSelector( state => state.ruleta )
     const [ numberSelected, setNumberSelected ] = useState(null); 
     const [ color, setColor ] = useState(null);
 
     const handleSpin = () => {
         const rand = Math.floor( Math.random()*numbers.length )
         const rValue = numbers[rand];
-
+        
         if ( reds.includes(rValue)) {
             setColor( "red" )
         } else if ( blacks.includes( rValue ) ) {
@@ -37,6 +36,7 @@ export const Ruleta = () => {
         }
         
         setNumberSelected( rValue );
+        setNumberAzar(rValue);
     }
    
     return (

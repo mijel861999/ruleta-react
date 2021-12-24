@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'; 
-import { useSelector } from 'react-redux';
 
 import { handleSetBackground } from '../helpers/stylesFunctions';
 
@@ -11,11 +10,11 @@ const TableroItem = styled.div`
     border: 1px solid tomato;
 `;
 
-export const Tablero = ({ money, setMoney, setProfit, setNumberSelected, numbersTablero,reds ,betMoney }) => {
+export const Tablero = ({ money, setMoney, setProfit, setOption, numbersTablero,reds ,betMoney }) => {
 
     const handleSelectNumber = (number) => {
         setProfit( betMoney*0.28 )
-        setNumberSelected(number)
+        setOption(number)
     }
 
     return (

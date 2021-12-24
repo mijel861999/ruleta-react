@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from 'react';
+import React,{ useState } from 'react';
 
 import { Ruleta } from './Ruleta';
 import { Tablero } from './Tablero';
@@ -18,18 +18,22 @@ numbersTablero.shift();
 export const RuletaScreen = () => {
 
     //const { money } = useSelector( state => state.ruleta )
-    const [ money, setMoney ] = useState(22);
-    const [ betMoney, setBetMoney ] = useState(null);
+    const [ money, setMoney ] = useState(20000);
+    const [ betMoney, setBetMoney ] = useState( 0 );
     const [ profit, setProfit ] = useState(0);
-    const [ numberSelected, setNumberSelected ] = useState(null);
+    const [ option, setOption ] = useState( null );
     const [ numberAzar, setNumberAzar ] = useState(0);
 
+    /*
     useEffect( ()=> {
-        if( numberAzar == numberSelected ){
+        if( numberAzar === option ){
             alert('GANASTE')
             setMoney( profit + money );
+        }else if( numberAzar !== option ) {
+            alert('PERDISTE');
         }
-    }, [ numberAzar ])
+    }, [ numberAzar, option, profit, money ])
+    */
 
     return (
         <div className="container">
@@ -45,7 +49,13 @@ export const RuletaScreen = () => {
                         numbers={ numbers }
                         reds={ reds }
                         blacks={ blacks }
+                        option={ option }
+                        betMoney={ betMoney }
+                        profit={profit}
+                        money={ money }
+                        numberAzar={numberAzar}
                         setNumberAzar={ setNumberAzar }
+                        setMoney={ setMoney }
                     />
                 </div>
             </div>  
@@ -65,9 +75,9 @@ export const RuletaScreen = () => {
             <div className="row mt-5">
                 <div className="col-12 text-center">
                     {
-                        (numberSelected)
+                        (option)
                             ? (
-                                <h1 className="h5">{ numberSelected }</h1>
+                                <h1 className="h5">{ option }</h1>
                             )
                             : (
                                 <h1 className="h5">Selecciona un número</h1>
@@ -93,7 +103,7 @@ export const RuletaScreen = () => {
                         reds={ reds }
                         money={ money } 
                         setMoney={ setMoney } 
-                        setNumberSelected={ setNumberSelected } 
+                        setOption={ setOption } 
                         setProfit={ setProfit }
                         betMoney={ betMoney }
                     />
